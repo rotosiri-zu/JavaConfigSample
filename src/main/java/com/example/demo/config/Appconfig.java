@@ -1,5 +1,21 @@
 package com.example.demo.config;
 
-public class Appconfig {
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+import com.example.demo.service.BusinessLogic;
+import com.example.demo.service.impl.SampleLogicImpl;
+import com.example.demo.service.impl.TestLogicImpl;
+
+@Configuration
+public class Appconfig {
+	@Bean(name = "test")
+	public BusinessLogic dataLogic() {
+		return new TestLogicImpl();
+	}
+	
+	@Bean(name = "Sample")
+	public BusinessLogic viewLogic() {
+		return new SampleLogicImpl();
+	}
 }
